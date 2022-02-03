@@ -67,10 +67,13 @@ namespace RB_Zaliczenie_Prog3.SidePanel
                     _visits = new ACC(
                         e =>
                         {
-                            if (User.instance == null)
-                                ErrorPanels.ErrorPanelsMenager.GetInstance().ErrorSet("notLoggedIn");
+                            if (User.instance != null)
+                                if (User.instance.privLvl.ToUpper() == "ADMIN")
+                                    ErrorPanels.ErrorPanelsMenager.GetInstance().ErrorSet("notClient");
+                                else
+                                    MV_Control.SetView(new Visit.VisitMV());
                             else
-                                MV_Control.SetView(new Visit.VisitMV());
+                                ErrorPanels.ErrorPanelsMenager.GetInstance().ErrorSet("notLoggedIn");
                         },
                         ce =>
                         {
@@ -93,8 +96,23 @@ namespace RB_Zaliczenie_Prog3.SidePanel
                     _userDaatRaport = new ACC(
                         e =>
                         {
-                            ReportWindow rw = new ReportWindow();
-                            rw.Show();
+                            if (User.instance != null)
+                            {
+                                if (User.instance.privLvl.ToUpper() == "ADMIN")
+                                {
+                                    ReportWindow rw = new ReportWindow();
+                                    rw.Show();
+
+                                    rw.rptViewer.ServerReport.ReportServerUrl = new Uri("http://laptop-k83qnn3g/ReportServer", System.UriKind.Absolute);
+                                    rw.rptViewer.ServerReport.ReportPath = "/Report3";
+                                    rw.rptViewer.RefreshReport();
+                                }
+                                else
+                                    ErrorPanels.ErrorPanelsMenager.GetInstance().ErrorSet("notAdmin");
+                            }
+                            else
+                                ErrorPanels.ErrorPanelsMenager.GetInstance().ErrorSet("notAdmin");
+
                         },
                         ce =>
                         {
@@ -106,13 +124,32 @@ namespace RB_Zaliczenie_Prog3.SidePanel
             }
         }
 
+        private ICommand _cosmetics;
+        public ICommand cosmetics
+        {
+            get
+            {
+                if (_cosmetics == null)
+                {
+                    _cosmetics = new ACC(
+                        e =>
+                        {
+
+                            MV_Control.SetView(new Cosmetic.CosmeticMV());
+                                
+                        },
+                        ce =>
+                        {
+                            return true;
+                        }
+                        );
+                }
+                return _cosmetics;
+            }
+        }
+
 
         #endregion
-
-
-
-
-
 
 
         #region IViewModel

@@ -34,7 +34,9 @@
         
         <Border  Grid.Row="2" Grid.Column="0" BorderThickness="10">
             <Button Style="{StaticResource MenuButtonStyle}" 
-                   Content="Cosmetics"/>
+                    Content="Cosmetics"
+                    DataContext="{StaticResource MV}"
+                    Command="{Binding cosmetics, Mode=OneWay}"/>
         </Border>
         
         <Border  Grid.Row="3" Grid.Column="0" BorderThickness="10">

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="RB_Zaliczenie_Prog3.ErrorPanels.NotLoggedInError"
+﻿<UserControl x:Class="RB_Zaliczenie_Prog3.ErrorPanels.NotAdminError"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -13,7 +13,8 @@
                    FontSize="70" 
                    Foreground="LightCoral" 
                    FontWeight="DemiBold" 
-                   Text="YOU HAVE TO BE LOGED IN TO ACCES THIS CONTENT" 
+                   Text="CONTENT RESTRICTED OFNLY FOR ADMINISTRATORS" 
                    TextWrapping="Wrap"/>
+
     </Grid>
 </UserControl>

@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RB_Zaliczenie_Prog3.x
+namespace RB_Zaliczenie_Prog3.Cosmetic
 {
     /// <summary>
-    /// Interaction logic for ReportWindow.xaml
+    /// Interaction logic for CosmeticV.xaml
     /// </summary>
-    public partial class ReportWindow : Window
+    public partial class CosmeticV : UserControl
     {
-        public ReportWindow()
+        public CosmeticV()
         {
             InitializeComponent();
-           
         }
     }
 }

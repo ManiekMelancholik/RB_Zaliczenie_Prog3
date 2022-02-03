@@ -16,13 +16,17 @@ namespace RB_Zaliczenie_Prog3.ErrorPanels
         private static ErrorPanelsMenager _instance;
         private ErrorPanelsMenager()
         {
-            int ammount = 2;
+            int ammount = 3;
             errorPannels = new UserControl[ammount];
             errorTypes = new string[ammount];
 
             //e0 - not logged in
             errorPannels[0] = new NotLoggedInError();
             errorTypes[0] = "notLoggedIn";
+            errorPannels[1] = new NotAdminError();
+            errorTypes[1] = "notAdmin";
+            errorPannels[2] = new NotClientError();
+            errorTypes[2] = "notClient";
 
 
         }
@@ -33,7 +37,14 @@ namespace RB_Zaliczenie_Prog3.ErrorPanels
                 _instance = new ErrorPanelsMenager();
             return _instance;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="error">
+        /// notLoggedIn 
+        /// notAdmin
+        /// notClient
+        /// </param>
        public void ErrorSet(string error)
         {
             MV_Control.ErrorView(errorPannels[Array.IndexOf(errorTypes, error)]);

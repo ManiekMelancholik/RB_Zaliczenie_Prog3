@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RB_Zaliczenie_Prog3.DataBase.Querries
 {
@@ -41,9 +42,14 @@ namespace RB_Zaliczenie_Prog3.DataBase.Querries
                     procedure.Parameters.Add(clientId);
                     procedure.Parameters.Add(date);
                     procedure.Parameters.Add(userPassword);
-
-                    procedure.ExecuteNonQuery();
-
+                    try
+                    {
+                        procedure.ExecuteNonQuery();
+                    }
+                    catch(Exception e)
+                    {
+                        MessageBox.Show(e.Message);
+                    }
 
                 }
                

@@ -41,7 +41,17 @@ namespace RB_Zaliczenie_Prog3.Utylities
             }
             
         }
+        public static ObservableCollection<Cosmetic.CosmeticM> cosmeticCollection
+        {
+            get
+            {
 
+                return Cosmetic.CosmeticMV.collection;
+
+
+            }
+
+        }
         //private static MV_Control _instance;
 
 

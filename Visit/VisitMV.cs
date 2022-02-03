@@ -82,7 +82,7 @@ namespace RB_Zaliczenie_Prog3.Visit
                             IQuerry getAppointments = new DataBase.Querries.GetApointments();
                             result = getAppointments.ExecuteQuerry();
                             VisitM.ConvertToObservableCollection((DataTable)result, collection, true);
-                            this.view.listView.ItemsSource = collection;
+                           // this.view.listView.ItemsSource = collection;
                         },
                         ce =>
                         {

@@ -41,8 +41,7 @@ namespace RB_Zaliczenie_Prog3.Start
                     _noLogin = new ACC(
                         e =>
                         {
-                            MessageBox.Show("Start without logging in");
-                            //MV_Control.SetView(new GuestView());
+                            MV_Control.SetView(new Cosmetic.CosmeticMV());
 
                         },
                         ce =>

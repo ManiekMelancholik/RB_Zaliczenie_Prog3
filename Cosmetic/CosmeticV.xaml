@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="RB_Zaliczenie_Prog3.Cosmetic.CosmeticV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RB_Zaliczenie_Prog3.Cosmetic"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local:CosmeticMV  x:Key="MV"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Auto"
+                      MaxHeight="700"
+                      MaxWidth="1000"
+                      MinHeight="700"
+                      MinWidth="1000">
+            <ListView x:Name="listView" ItemsSource="{Binding cosmeticCollection, Mode=OneWay}">
+                <ListView.View>
+                    <GridView >
+
+                        <GridViewColumn DisplayMemberBinding="{Binding name}"           Header="Cosmetic name" Width="auto"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding price}"          Header="price" Width="auto"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding producerName}"   Header="producer" Width="auto"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding mainActive}"     Header="active substance" Width="auto"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding description}"    Header="description" Width="auto"/>
+                       
+                    </GridView>
+
+                </ListView.View>
+            </ListView>
+        </ScrollViewer>
+
+
+        <Button Grid.Row="1"
+                Content="Substances Raport"
+                Width="300" Height="50"
+                Style="{StaticResource LightButtonStyle}"
+                DataContext="{StaticResource MV}"
+                Command="{Binding getRaports, Mode=OneWay}"/>
+
+
+    </Grid>
+</UserControl>
