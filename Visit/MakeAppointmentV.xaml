@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="RB_Zaliczenie_Prog3.Visit.MakeAppointmentV"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RB_Zaliczenie_Prog3.Visit"
+             xmlns:converters ="clr-namespace:RB_Zaliczenie_Prog3.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+           
+            >
+    <UserControl.Resources>
+        <Style x:Key="AppointmentLabel" TargetType="Label">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="Teal"/>
+        </Style>
+        <local:MakeAppoitnmentMV x:Key="MV"/>
+        <converters:ComboBoxToString x:Key="CBTS"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Column="1" 
+               Style="{StaticResource AppointmentLabel}"
+               Content="Select Appointment Date"/>
+        
+        <DatePicker Grid.Column="1" Grid.Row="1"
+                    DataContext="{StaticResource MV}"
+                    SelectedDate="{Binding appointmentDate,Mode=OneWayToSource}"/>
+        
+        <Label Grid.Column="1" Grid.Row="2" 
+               Style="{StaticResource AppointmentLabel}"
+               Content="Select Appointment Hour"/>
+
+        <ComboBox Grid.Column="1" Grid.Row="3" 
+                  DataContext="{StaticResource MV}"
+                  SelectedValue="{Binding appointmentHour,
+                                Mode=OneWayToSource,
+                                Converter={StaticResource CBTS}}">
+            <ComboBoxItem Content="10:00"/>
+            <ComboBoxItem Content="12:00"/>
+            <ComboBoxItem Content="14:00"/>
+            <ComboBoxItem Content="16:00"/>
+        </ComboBox>
+          
+
+        <Button Grid.Column="1" Grid.Row="5" 
+                FontSize="35"
+                DataContext="{StaticResource MV}"
+                Command="{Binding makeAppointment, Mode=OneWay}"
+                Style="{StaticResource LightButtonStyle}"
+                Content="MAKE APPOINTMENT"/>
+
+
+
+    </Grid>
+</UserControl>

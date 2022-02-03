@@ -1,0 +1,38 @@
+﻿<Window x:Class="RB_Zaliczenie_Prog3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RB_Zaliczenie_Prog3"
+        mc:Ignorable="d"
+        xmlns:startup="clr-namespace:RB_Zaliczenie_Prog3.Start"
+        xmlns:MV ="clr-namespace:RB_Zaliczenie_Prog3.Utylities"
+        xmlns:SideMenu="clr-namespace:RB_Zaliczenie_Prog3.SidePanel"
+        Title="MainWindow" Height="450" Width="800"
+        Style="{StaticResource lightStyle}"
+        >
+    <Window.DataContext>
+        <MV:MV_Control/>
+
+    </Window.DataContext>
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition MinHeight="720"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="520"/>
+                <ColumnDefinition MinWidth="1020"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderThickness="10" BorderBrush="DimGray">
+                <SideMenu:SidePanelV />
+            </Border>
+            <Border Grid.Column="1" x:Name="MainWindowContent" BorderThickness="10" >
+                <startup:StartrV Grid.Row="1" Grid.Column="1" />
+            </Border>
+            
+        </Grid>
+    </Viewbox>
+</Window>
