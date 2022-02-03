@@ -65,7 +65,7 @@ namespace RB_Zaliczenie_Prog3.Start
                     _login = new ACC(
                         e =>
                         {
-                           MessageBox.Show("Starting LOGING IN");
+                         //  MessageBox.Show("Starting LOGING IN");
                            MV_Control.SetView(new LoginMV());
                         },
                         ce =>

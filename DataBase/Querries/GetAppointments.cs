@@ -37,7 +37,7 @@ namespace RB_Zaliczenie_Prog3.DataBase.Querries
 
                         SqlDataAdapter adapter = new SqlDataAdapter();
                         adapter.SelectCommand = procedure;
-                        MessageBox.Show("doing stuff");
+                       // MessageBox.Show("doing stuff");
                         //adapter.SelectCommand.Parameters.Add(userId);
                         adapter.Fill(table);
 

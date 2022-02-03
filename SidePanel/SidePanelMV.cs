@@ -26,6 +26,7 @@ namespace RB_Zaliczenie_Prog3.SidePanel
                 return _view;
             }
         }
+        
 
         #region Commands
         private ICommand _login;
@@ -38,7 +39,11 @@ namespace RB_Zaliczenie_Prog3.SidePanel
                     _login = new ACC(
                         e =>
                         {
+                            if (User.instance != null)
+                                User.ResetUser();
+                                
                             MV_Control.SetView(new LoginMV());
+                            
                         },
                         ce =>
                         {

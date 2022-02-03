@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace RB_Zaliczenie_Prog3.Login
 {
@@ -80,6 +81,7 @@ namespace RB_Zaliczenie_Prog3.Login
 
         public static void SetNewUser(string n, string pL, int? index = null)
         {
+            MessageBox.Show("Looged in");
             _instance = new User { name = n, privLvl = pL, userIndex = index };
             //if (n == string.Empty || pass == string.Empty)
             //    _instance = new User(false);
@@ -88,6 +90,7 @@ namespace RB_Zaliczenie_Prog3.Login
         }
         public static void ResetUser()
         {
+            MessageBox.Show("Looged out");
             _instance = null;
         }
 
